@@ -124,5 +124,5 @@ func average(testFunc func() (time.Duration, error), concurrentOps, count int) (
 
 	collectWg.Wait()
 
-	return time.Duration(int64(totalRuntime) / int64(count)), operationErr
+	return time.Duration(int64(totalRuntime) / (int64(count) * int64(concurrentOps))), operationErr
 }
